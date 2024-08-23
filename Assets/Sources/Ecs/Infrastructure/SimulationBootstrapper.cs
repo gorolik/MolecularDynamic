@@ -1,4 +1,5 @@
 using Leopotam.Ecs;
+using Sources.Behaviour.UI;
 using Sources.Ecs.Systems;
 using UnityEngine;
 using Voody.UniLeo;
@@ -12,15 +13,19 @@ namespace Sources.Ecs.Infrastructure
         
         [Header("Links")]
         [SerializeField] private Simulation _simulation;
+        [SerializeField] private ParticleCreator _particleCreator;
+        [SerializeField] private SimulationControlUI _simulationControlUI;
+        [SerializeField] private StatsDisplayer _statsDisplayer;
         
         [Header("Dependencies")]
         [SerializeField] private Transform _camera;
+        [SerializeField] private Transform _particlesParent;
 
         private EcsWorld _world;
         private EcsSystems _simulationSystems;
         private EcsSystems _updateSystems;
 
-        private void Start()
+        private void Start() // мб поделить EcsBootstrapper и SimulationBootstrapper
         {
             _world = new EcsWorld();
             _simulationSystems = new EcsSystems(_world);
@@ -38,7 +43,10 @@ namespace Sources.Ecs.Infrastructure
             _simulationSystems.Init();
             _updateSystems.Init();
             
+            _particleCreator.Init(_particlesParent);
             _simulation.Init(_simulationSystems, _simulationSettings);
+            _simulationControlUI.Init(_simulation, _particleCreator, _simulationSettings);
+            _statsDisplayer.Init(_simulationSettings);
         }
 
         private void AddInjections()
@@ -54,8 +62,9 @@ namespace Sources.Ecs.Infrastructure
         private void AddSimulationSystems()
         {
             _simulationSystems.
-                Add(new RepulsiveSystem()).
+                //Add(new RepulsiveSystem()).
                 //Add(new ParticleInteractionSystem()).
+                Add(new TemperatureSystem()).
                 
                 Add(new MomentumSystem()).
                 

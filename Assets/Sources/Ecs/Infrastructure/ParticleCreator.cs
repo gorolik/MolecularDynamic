@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using TMPro;
+﻿using System.Collections.Generic;
+using Leopotam.Ecs;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using Voody.UniLeo;
 
 namespace Sources.Ecs.Infrastructure
 {
@@ -10,47 +10,45 @@ namespace Sources.Ecs.Infrastructure
     {
         [Header("Particles Settings")]
         [SerializeField] private GameObject _particlePrefab;
+        
+        private Transform _simulationParent;
 
-        [Header("Links")] 
-        [SerializeField] private Transform _simulationBox;
-        [SerializeField] private Transform _simulationParent;
-        [SerializeField] private Slider _particlesCount;
-        [SerializeField] private TMP_Text _particlesCountDisplay;
+        //private readonly Dictionary<GameObject, EcsEntity> _particles = new Dictionary<GameObject, EcsEntity>();
 
         private readonly List<GameObject> _particles = new List<GameObject>();
+        
+        public int ParticlesCount => _particles.Count;
 
-        private void Start() => 
-            DisplayParticlesCount();
+        public void Init(Transform simulationParent) => 
+            _simulationParent = simulationParent;
 
-        public void CreateParticles()
+        public void CreateParticles(int count)
         {
-            float count = _particlesCount.value;
-
             for (int i = 0; i < count; i++)
             {
                 GameObject particle = Instantiate(_particlePrefab, _simulationParent);
                 _particles.Add(particle);
+                /*ConvertToEntity particleConvert = particle.GetComponent<ConvertToEntity>();
+                
+                if (particleConvert.TryGetEntity().HasValue)
+                {
+                    EcsEntity entity = particleConvert.TryGetEntity().Value;
+                    _particles.Add(particle, entity);
+                }*/
             }
-
-            DisplayParticlesCount();
         }
 
         public void DestroyParticles()
         {
-            foreach (GameObject particle in _particles) 
-                Destroy(particle);
-            
-            _particles.Clear();
+            /*foreach (var particle in _particles)
+            {
+                particle.Value.Destroy();
+                Destroy(particle.Key);
+            }
 
-            DisplayParticlesCount();
-        }
+            _particles.Clear();*/
 
-        private void DisplayParticlesCount() => 
-            _particlesCountDisplay.text = "Количество частиц: " + _particles.Count.ToString();
-
-        private Vector3 GetRandomSpawnPosition()
-        {
-            return Vector3.zero;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 }

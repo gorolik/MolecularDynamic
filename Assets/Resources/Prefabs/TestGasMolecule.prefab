@@ -18,11 +18,11 @@ GameObject:
   - component: {fileID: 181098191402109249}
   - component: {fileID: 7898267871254775127}
   - component: {fileID: 4344223499903926053}
-  - component: {fileID: -6057734408888742673}
+  - component: {fileID: -6493422310270616489}
   m_Layer: 0
-  m_Name: Particle (Repulsive)
+  m_Name: TestGasMolecule
   m_TagString: Untagged
-  m_Icon: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 2800000, guid: 8042c0e8ddc56e642ab1245a4726b771, type: 3}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    _weight: 1
+    _weight: 3.347e-27
 --- !u!114 &7810773406963364384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   value:
     _view: {fileID: 9169298860077420340}
---- !u!114 &-6057734408888742673
+--- !u!114 &-6493422310270616489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -166,12 +166,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4190883544886776006}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65b8b43d98a66b649a13fd58edd9e3be, type: 3}
+  m_Script: {fileID: 11500000, guid: b8b488937fb2e3d44af86afe416a39fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  value:
-    _radius: 1
-    _power: 1
 --- !u!1 &5881722669370919758
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,7 +195,7 @@ Transform:
   m_GameObject: {fileID: 5881722669370919758}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8887860755155719361}
@@ -245,8 +242,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.5058824, g: 0.77254903, b: 0.67315495, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 8042c0e8ddc56e642ab1245a4726b771, type: 3}
+  m_Color: {r: 1, g: 0.75964546, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

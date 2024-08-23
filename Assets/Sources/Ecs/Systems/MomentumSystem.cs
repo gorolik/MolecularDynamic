@@ -8,7 +8,7 @@ namespace Sources.Ecs.Systems
     public class MomentumSystem : IEcsRunSystem
     {
         private readonly EcsFilter<ImpulseComponent, MomentumComponent> _momentumFilter = null;
-        private readonly SimulationSettings _settings = null;
+        //private readonly SimulationSettings _settings = null;
         
         public void Run()
         {
@@ -20,7 +20,7 @@ namespace Sources.Ecs.Systems
                 ref var momentumComponent = ref _momentumFilter.Get2(i);
                 ref var momentum = ref momentumComponent.Momentum;
                 
-                momentum += impulse * _settings.DeltaTime;
+                momentum += impulse; // тут был импульс умножить на дельта тайм, убрал тк это мешало детерминированности импульса при разных скоростях симуляции
                 
                 impulse = Vector3.zero;
             }

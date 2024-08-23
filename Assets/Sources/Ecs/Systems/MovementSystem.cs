@@ -19,7 +19,7 @@ namespace Sources.Ecs.Systems
                 ref var momentumComponent = ref _movableFilter.Get2(i);
                 ref var momentum = ref momentumComponent.Momentum;
                 
-                position += momentum * _settings.DeltaTime;
+                position += momentum * _settings.DeltaTime; // ограничивать световую скорость тут или там
             }
         }
     }

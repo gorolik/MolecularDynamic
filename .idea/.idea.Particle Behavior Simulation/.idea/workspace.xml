@@ -14,8 +14,10 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/17484a9af6b944dea5cd9be4dbb0da2c171c00/0a/0c7e2a96/Vector3.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Sources/Behaviour/FieldForce.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Sources/Behaviour/UI/DisplaySliderValue.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Sources/Behaviour/UI/StatsDisplayer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Sources/Ecs/Infrastructure/Simulation.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.leopotam.ecs@1213c31c9e/src/EcsSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.voody.unileo@bbaed2aec8/Runtime/MonoHelpers/ConvertToEntity.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.voody.unileo@bbaed2aec8/Runtime/World/Systems/WorldInitSystem.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
@@ -110,6 +112,13 @@
       <workItem from="1697639844868" duration="1164000" />
       <workItem from="1698126029662" duration="1051000" />
       <workItem from="1698155738795" duration="10178000" />
+      <workItem from="1700383017705" duration="2883000" />
+      <workItem from="1700397708678" duration="1823000" />
+      <workItem from="1700472335225" duration="429000" />
+      <workItem from="1700477119948" duration="2407000" />
+      <workItem from="1700504783399" duration="234000" />
+      <workItem from="1700544530549" duration="981000" />
+      <workItem from="1701344007260" duration="3944000" />
     </task>
     <servers />
   </component>

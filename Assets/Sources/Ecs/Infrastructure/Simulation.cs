@@ -10,6 +10,8 @@ namespace Sources.Ecs.Infrastructure
         private float _currentTime;
         private bool _simulating;
 
+        public bool Simulating => _simulating;
+
         public void Init(EcsSystems systems, SimulationSettings settings)
         {
             _settings = settings;
