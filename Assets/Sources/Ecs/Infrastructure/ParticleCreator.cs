@@ -9,7 +9,7 @@ namespace Sources.Ecs.Infrastructure
     public class ParticleCreator : MonoBehaviour
     {
         [Header("Particles Settings")]
-        [SerializeField] private GameObject _particlePrefab;
+        [SerializeField] private GameObject[] _particlePrefabs;
         
         private Transform _simulationParent;
 
@@ -22,18 +22,19 @@ namespace Sources.Ecs.Infrastructure
         public void Init(Transform simulationParent) => 
             _simulationParent = simulationParent;
 
-        public void CreateParticles(int count)
+        public void CreateParticles(int count, int particleId)
         {
             for (int i = 0; i < count; i++)
             {
-                GameObject particle = Instantiate(_particlePrefab, _simulationParent);
+                GameObject particle = Instantiate(_particlePrefabs[particleId], _simulationParent);
                 _particles.Add(particle);
+
                 /*ConvertToEntity particleConvert = particle.GetComponent<ConvertToEntity>();
-                
                 if (particleConvert.TryGetEntity().HasValue)
                 {
                     EcsEntity entity = particleConvert.TryGetEntity().Value;
                     _particles.Add(particle, entity);
+                    entity.Destroy();
                 }*/
             }
         }

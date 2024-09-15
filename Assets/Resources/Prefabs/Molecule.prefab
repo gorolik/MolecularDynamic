@@ -20,7 +20,7 @@ GameObject:
   - component: {fileID: 4344223499903926053}
   - component: {fileID: -6493422310270616489}
   m_Layer: 0
-  m_Name: TestGasMolecule
+  m_Name: Molecule
   m_TagString: Untagged
   m_Icon: {fileID: 2800000, guid: 8042c0e8ddc56e642ab1245a4726b771, type: 3}
   m_NavMeshLayer: 0
@@ -33,6 +33,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4190883544886776006}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -40,7 +41,6 @@ Transform:
   m_Children:
   - {fileID: 9169298860077420340}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8860648169124589140
 MonoBehaviour:
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value:
-    _weight: 3.347e-27
+    _weight: 1
 --- !u!114 &7810773406963364384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -193,13 +193,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5881722669370919758}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.01, y: 0.01, z: 0.01}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8887860755155719361}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2567894172397911077
 SpriteRenderer:

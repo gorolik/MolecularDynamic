@@ -5,6 +5,9 @@ using Sources.Ecs.Tags;
 
 namespace Sources.Ecs.Systems
 {
+    /// <summary>
+    /// Ограничение движение молекул внутри коробки
+    /// </summary>
     internal sealed class LimitingSpaceBoxSystem : IEcsRunSystem
     {
         private readonly EcsFilter<ParticleTag, PositionComponent, MomentumComponent, ImpulseComponent> _movableFilter = null;
@@ -34,6 +37,7 @@ namespace Sources.Ecs.Systems
 
                     var nextDeltaPos = position + momentum * _settings.DeltaTime;
                     
+                    // алгоритм учитывает момент столкновения и после этого перенаправляет оставшееся движение
                     for (int g = 0; g < 3; g++)
                     {
                         if (nextDeltaPos[g] > boundsMax[g] || nextDeltaPos[g] < boundsMin[g])

@@ -3,6 +3,9 @@ using Sources.Ecs.Components;
 
 namespace Sources.Ecs.Systems
 {
+    /// <summary>
+    /// Записывает позицию перед её изменением для дальнейшей интерполяции
+    /// </summary>
     public class InterpolationSystem : IEcsRunSystem
     {
         private readonly EcsFilter<PositionComponent, InterpolationComponent> _interpolationFilter = null;

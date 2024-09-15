@@ -5,6 +5,10 @@ using UnityEngine;
 
 namespace Sources.Ecs.Systems
 {
+    /// <summary>
+    /// Применяет накопленный за кадр импульс молекулы к его инерции (постоянной скорости)
+    /// и сбрасывает импульс
+    /// </summary>
     public class MomentumSystem : IEcsRunSystem
     {
         private readonly EcsFilter<ImpulseComponent, MomentumComponent> _momentumFilter = null;

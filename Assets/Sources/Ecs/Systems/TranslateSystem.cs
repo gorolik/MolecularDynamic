@@ -5,6 +5,9 @@ using UnityEngine;
 
 namespace Sources.Ecs.Systems
 {
+    /// <summary>
+    /// Задает новую позицию обьекта, применяя интерполяцию, согласно настройкам
+    /// </summary>
     internal sealed class TranslateSystem : IEcsRunSystem
     {
         private readonly EcsFilter<TransformComponent, PositionComponent, InterpolationComponent> _translationFilter = null;

@@ -4,6 +4,9 @@ using Sources.Ecs.Infrastructure;
 
 namespace Sources.Ecs.Systems
 {
+    /// <summary>
+    /// Обновляет виртуальную позицию согласно скорости и прошедшему времени между кадрами
+    /// </summary>
     public class MovementSystem : IEcsRunSystem
     {
         private readonly EcsFilter<PositionComponent, MomentumComponent> _movableFilter = null;
@@ -19,7 +22,8 @@ namespace Sources.Ecs.Systems
                 ref var momentumComponent = ref _movableFilter.Get2(i);
                 ref var momentum = ref momentumComponent.Momentum;
                 
-                position += momentum * _settings.DeltaTime; // ограничивать световую скорость тут или там
+                position += momentum * _settings.DeltaTime; 
+                // ограничивать световую скорость тут или там (если её вообще надо ограничивать, тк симуляция не про это)
             }
         }
     }

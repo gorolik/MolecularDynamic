@@ -14,6 +14,7 @@ namespace Sources.Behaviour.UI
         [SerializeField] private string _stopSimulation = "Остановить симуляцию";
         [Header("Particles Control")]
         [SerializeField] private Slider _particlesCount;
+        [SerializeField] private TMP_Dropdown _particleType;
         [SerializeField] private TMP_Text _particlesCountText;
         [SerializeField] private string _particlesCountPrefix = "Количество частиц: ";
         [Header("Temperature")]
@@ -65,7 +66,7 @@ namespace Sources.Behaviour.UI
         public void CreateParticles()
         {
             int count = Mathf.RoundToInt(_particlesCount.value);
-            _particleCreator.CreateParticles(count);
+            _particleCreator.CreateParticles(count, _particleType.value);
             
             ValidateViewData();
         }

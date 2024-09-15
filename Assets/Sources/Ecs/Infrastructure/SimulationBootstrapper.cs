@@ -13,6 +13,7 @@ namespace Sources.Ecs.Infrastructure
         
         [Header("Links")]
         [SerializeField] private Simulation _simulation;
+        [SerializeField] private SimulationData _simulationData;
         [SerializeField] private ParticleCreator _particleCreator;
         [SerializeField] private SimulationControlUI _simulationControlUI;
         [SerializeField] private StatsDisplayer _statsDisplayer;
@@ -52,18 +53,18 @@ namespace Sources.Ecs.Infrastructure
         private void AddInjections()
         {
             _simulationSystems.Inject(_simulationSettings);
-            
+
             _updateSystems.Inject(_simulationSettings);
+            _updateSystems.Inject(_simulationData);
             _updateSystems.Inject(_camera);
         }
 
         private void AddOneFrames() { }
 
+        // Системы, непосредственно участвующие в поведении симуляции
         private void AddSimulationSystems()
         {
             _simulationSystems.
-                //Add(new RepulsiveSystem()).
-                //Add(new ParticleInteractionSystem()).
                 Add(new TemperatureSystem()).
                 
                 Add(new MomentumSystem()).
@@ -74,11 +75,13 @@ namespace Sources.Ecs.Infrastructure
                 Add(new MovementSystem());
         }
 
+        // Все вспомогательныее системы, выполняются после просчета симуляции
         private void AddUpdateSystems()
         {
             _updateSystems.
                 Add(new TranslateSystem()).
-                Add(new SpritesLookAtCameraSystem());
+                Add(new SpritesLookAtCameraSystem()).
+                Add(new AverageMoleculeSpeedCalsSystem());
         }
 
         private void Update() => 
