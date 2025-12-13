@@ -21,6 +21,10 @@ namespace Sources.Behaviour.UI
         [Header("Simulation Speed")]
         [SerializeField] private Slider _simulationSpeed;
 
+        [Header("Simulation Volume")] 
+        [SerializeField] private Transform _volumeTransform; // Временное решение, нельзя управлять объемом тут
+        [SerializeField] private Slider _volume;
+
         private Simulation _simulation;
         private ParticleCreator _particleCreator;
         private SimulationSettings _settings;
@@ -38,16 +42,27 @@ namespace Sources.Behaviour.UI
         {
             _temperature.onValueChanged.AddListener(ChangeTemperature);
             _simulationSpeed.onValueChanged.AddListener(ChangeSimulationSpeed);
+            _volume.onValueChanged.AddListener(ChangeSimulationVolume);
         }
 
         private void OnDisable()
         {
             _temperature.onValueChanged.RemoveListener(ChangeTemperature);
             _simulationSpeed.onValueChanged.RemoveListener(ChangeSimulationSpeed);
+            _volume.onValueChanged.RemoveListener(ChangeSimulationVolume);
         }
 
         private void ChangeSimulationSpeed(float value) => 
             _settings.SetSimulationSpeed(value);
+
+        private void ChangeSimulationVolume(float value)
+        {
+            // Временное решение, нельзя управлять объемом тут
+            _volumeTransform.localScale = new Vector3(value, value, value);
+        }
+
+        public void ChangeTemperature(float value) => 
+            _settings.SetTemperature(value);
 
         public void SwitchSimulationState()
         {
@@ -58,9 +73,6 @@ namespace Sources.Behaviour.UI
             
             ValidateViewData();
         }
-
-        public void ChangeTemperature(float value) => 
-            _settings.SetTemperature(value);
 
         public void CreateParticles()
         {
