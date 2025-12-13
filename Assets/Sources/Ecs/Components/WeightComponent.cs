@@ -7,6 +7,6 @@ namespace Sources.Ecs.Components
     public struct WeightComponent
     {
         [Tooltip("А.Е.М.")]
-        public float _weight;
+        public float Weight;
     }
 }

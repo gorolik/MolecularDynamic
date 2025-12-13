@@ -2,6 +2,7 @@
 using Sources.Ecs.Components;
 using Sources.Ecs.Infrastructure;
 using UnityEngine;
+using Assets.Sources;
 
 namespace Sources.Ecs.Systems
 {
@@ -16,10 +17,6 @@ namespace Sources.Ecs.Systems
         private readonly EcsFilter<TemperatureComponent, MomentumComponent, WeightComponent> _temperatureFilter = null;
         private readonly SimulationSettings _settings = null;
 
-        private const double _boltzmannConstant = 1.38e-23;
-        private const double _fromAEMtoKgConstant = 1.660566e-27; 
-
-
         public void Run() 
         {
             foreach (int i in _temperatureFilter)
@@ -31,7 +28,7 @@ namespace Sources.Ecs.Systems
                 ref var momentum = ref momentumComponent.Momentum;
                 
                 ref var weightComponent = ref _temperatureFilter.Get3(i);
-                ref var weight = ref weightComponent._weight;
+                var weight = weightComponent.Weight * Constants.ConvertFromAEMtoKg;
 
                 if (_settings.Temperature != settedTemperature)
                 {
@@ -42,11 +39,12 @@ namespace Sources.Ecs.Systems
                     else
                         direction = momentum.normalized;
 
-                    var v = Mathf.Sqrt((float)((8.0f * _boltzmannConstant * _settings.Temperature) / (Mathf.PI * (weight * _fromAEMtoKgConstant))));
+                    var v = Mathf.Sqrt((float)((8.0f * Constants.BoltzmannConstant * _settings.Temperature) / (Mathf.PI * (weight))));
                     momentum = direction * v;
                     // выставляем в моментум, чтобы при ручном изменении температуры скорость устанавливалась
                     // точно по формуле, ниже закоментирован вариант записи движения в импульс,
-                    // но его нужно ещё проверять
+                    // но его нужно ещё проверять, а ещё, если во время применения импульса будет
+                    // рассчет по массе, то нужно именно моментум дергать
 
                     settedTemperature = _settings.Temperature;
                 }

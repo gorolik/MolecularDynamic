@@ -24,6 +24,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Neon Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6114261510367674278, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Sigma
+      value: 2.74
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114261510367674278, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Epsilon
+      value: 0.0031
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780977106479286926, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Weight
+      value: 20.1797
+      objectReference: {fileID: 0}
     - target: {fileID: 8780977106479286926, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
       propertyPath: value._weight
       value: 20.1797

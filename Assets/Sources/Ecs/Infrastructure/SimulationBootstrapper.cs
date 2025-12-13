@@ -1,3 +1,5 @@
+using Assets.Sources;
+using Assets.Sources.Ecs.Systems;
 using Leopotam.Ecs;
 using Sources.Behaviour.UI;
 using Sources.Ecs.Systems;
@@ -37,13 +39,13 @@ namespace Sources.Ecs.Infrastructure
 
             AddInjections();
             AddOneFrames();
-            
             AddSimulationSystems();
             AddUpdateSystems();
 
             _simulationSystems.Init();
             _updateSystems.Init();
-            
+
+            GeneralFunctions.Init(_simulationSettings);
             _particleCreator.Init(_particlesParent);
             _simulation.Init(_simulationSystems, _simulationSettings);
             _simulationControlUI.Init(_simulation, _particleCreator, _simulationSettings);
@@ -66,7 +68,8 @@ namespace Sources.Ecs.Infrastructure
         {
             _simulationSystems.
                 Add(new TemperatureSystem()).
-                
+                Add(new LennardJonesInteractionSystem()).
+
                 Add(new MomentumSystem()).
                 
                 Add(new LimitingSpaceBoxSystem()).

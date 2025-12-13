@@ -32,6 +32,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Argon Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6114261510367674278, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Sigma
+      value: 3.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114261510367674278, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Epsilon
+      value: 0.0104
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780977106479286926, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Weight
+      value: 39.948
+      objectReference: {fileID: 0}
     - target: {fileID: 8780977106479286926, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
       propertyPath: value._weight
       value: 39.948

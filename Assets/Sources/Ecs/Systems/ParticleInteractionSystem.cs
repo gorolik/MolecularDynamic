@@ -1,11 +1,13 @@
 ﻿using Leopotam.Ecs;
 using Sources.Ecs.Components;
 using Sources.Ecs.Infrastructure;
+using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Sources.Ecs.Systems
 {
+    [Obsolete("Используйте LennardJonesSystem")]
     public class ParticleInteractionSystem : IEcsRunSystem
     {
         private readonly EcsFilter<PositionComponent, ImpulseComponent, WeightComponent> _atomicFilter = null;
@@ -22,7 +24,7 @@ namespace Sources.Ecs.Systems
                 ref var selfImpulse = ref selfImpulseComponent.Impulse;
                 
                 ref var selfWeightComponent = ref _atomicFilter.Get3(i);
-                ref var selfWeight = ref selfWeightComponent._weight;
+                ref var selfWeight = ref selfWeightComponent.Weight;
                 
                 foreach (int j in _atomicFilter)
                 {

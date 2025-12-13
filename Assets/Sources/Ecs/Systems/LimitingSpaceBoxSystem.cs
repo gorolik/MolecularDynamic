@@ -10,7 +10,7 @@ namespace Sources.Ecs.Systems
     /// </summary>
     internal sealed class LimitingSpaceBoxSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<ParticleTag, PositionComponent, MomentumComponent, ImpulseComponent> _movableFilter = null;
+        private readonly EcsFilter<ParticleTag, PositionComponent, MomentumComponent> _movableFilter = null;
         private readonly EcsFilter<LimitingBoxTag, TransformComponent> _boxFilter = null;
         private readonly SimulationSettings _settings = null;
 

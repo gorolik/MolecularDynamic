@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using Assets.Sources;
+using Leopotam.Ecs;
 using Sources.Ecs.Components;
 using Sources.Ecs.Infrastructure;
 using UnityEngine;
@@ -11,9 +12,9 @@ namespace Sources.Ecs.Systems
     /// </summary>
     public class MomentumSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<ImpulseComponent, MomentumComponent> _momentumFilter = null;
-        //private readonly SimulationSettings _settings = null;
-        
+        private readonly EcsFilter<ImpulseComponent, MomentumComponent, WeightComponent> _momentumFilter = null;
+        private readonly SimulationSettings _simulationSettings = null;
+
         public void Run()
         {
             foreach (int i in _momentumFilter)
@@ -23,8 +24,12 @@ namespace Sources.Ecs.Systems
                 
                 ref var momentumComponent = ref _momentumFilter.Get2(i);
                 ref var momentum = ref momentumComponent.Momentum;
-                
-                momentum += impulse; // тут был импульс умножить на дельта тайм, убрал тк это мешало детерминированности импульса при разных скоростях симуляции
+
+                ref var weightComponent = ref _momentumFilter.Get3(i);
+                var weight = weightComponent.Weight * Constants.ConvertFromAEMtoKg;
+
+                momentum += (impulse / _simulationSettings.Scale) / (float)weight;
+                // нужно ли учитывыать масштаб на скорости молекул?
                 
                 impulse = Vector3.zero;
             }

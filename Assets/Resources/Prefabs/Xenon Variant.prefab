@@ -32,6 +32,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Xenon Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6114261510367674278, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Sigma
+      value: 3.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6114261510367674278, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Epsilon
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780977106479286926, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
+      propertyPath: value.Weight
+      value: 131.293
+      objectReference: {fileID: 0}
     - target: {fileID: 8780977106479286926, guid: 5301b2728c64e4f42b7e291229e7c932, type: 3}
       propertyPath: value._weight
       value: 131.293
